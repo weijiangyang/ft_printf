@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:47:25 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/12 16:58:33 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/13 17:50:50 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int ft_putstr(char *s)
 	return (len);
 }
 
-int	 ft_puthex(int nb, int type) 
+int	 ft_puthex(unsigned int  nb, int type) 
 {
 	int	len;
 	char	*base;
@@ -58,7 +58,22 @@ int	 ft_puthex(int nb, int type)
 	ft_putchar(base[nb % 16]);
 	return (len + 1);
 }
-	
+
+int	ft_puthex_ptr(unsigned long nb)
+{
+	int	len;
+	char	*base;
+
+	len = 0;
+	base = "0123456789abcdef";
+	if (nb >= 16)
+	{
+		ft_puthex_ptr(nb / 16);
+		len++；
+	}
+	ft_putchar(base[nb % 16]);
+	return (len + 1);
+}
 	
 int main(void)
 {
@@ -75,7 +90,10 @@ int ft_putptr(unsigned long n)
 {
 	int	count;
 
-	count = ft_puthex(n, 
+	count = 0;
+	count += ft_putstr('0x');
+	count += ft_puthex_ptr(n);
+	return (count);
 }
 
 	
@@ -99,7 +117,12 @@ int ft_printf(const char *format, ...)
 			else if (*format == 'u')
 				len+= ft_putstr(va_arg(args, unsigned int);
 			else if (*format == 'x')
-				len+ = ft_puthex(va_arg(args,int), 1);
+				len+ = ft_puthex(va_arg(args,unsigned int), 1);
 			else if (*format == 'X')
-				len+= ft_puthex(va_arg(args, int), 2);
-		 
+				len+= ft_puthex(va_arg(args, unsigned int), 2);
+		 	else if (*format == 'p')
+				len+= ft_putptr(va_arg(args, unsigned long);
+			else if (*format =='%')
+				len+=ft_putchar ('%');
+	}
+}
