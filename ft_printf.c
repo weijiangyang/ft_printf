@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:47:25 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/13 17:50:50 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/06/13 19:02:56 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,15 @@ int main(void)
 	return (0);
 }
 
-int ft_putptr(unsigned long n)
+int ft_putptr(void *ptr)
 {
 	int	count;
-
+	
+	if (!ptr)
+		return (ft_putstr("(nil)"));
 	count = 0;
 	count += ft_putstr('0x');
-	count += ft_puthex_ptr(n);
+	count += ft_puthex_ptr((unsigned long)ptr);
 	return (count);
 }
 
@@ -121,7 +123,7 @@ int ft_printf(const char *format, ...)
 			else if (*format == 'X')
 				len+= ft_puthex(va_arg(args, unsigned int), 2);
 		 	else if (*format == 'p')
-				len+= ft_putptr(va_arg(args, unsigned long);
+				len+= ft_putptr(va_arg(args, void *));
 			else if (*format =='%')
 				len+=ft_putchar ('%');
 	}
