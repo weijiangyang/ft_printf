@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 14:37:30 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/15 16:20:34 by weiyang          ###   ########.fr       */
+/*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
+/*   Updated: 2025/06/15 16:29:46 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex(unsigned int nb, int type)
+int	ft_putnbr(int nb)
 {
-	int		len;
-	char	*base;
+	int	count;
 
-	len = 0;
-	if (type == 1)
-		base = "0123456789abcdef";
-	if (type == 2)
-		base = "0123456789ABCDEF";
-	if (nb >= 16)
-		len += ft_puthex(nb / 16, type);
-	ft_putchar(base[nb % 16]);
-	return (len + 1);
+	count = 0;
+	if (nb == -2147483648)
+	{
+		count += ft_putstr("-2147483648");
+		return (count);
+	}
+	if (nb < 0)
+	{
+		nb = -nb;
+		count += ft_putchar ('-');
+	}
+	if (nb >= 10)
+		count += ft_putnbr (nb / 10);
+	count += ft_putchar (nb % 10 + '0');
+	return (count);
 }

@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 14:37:30 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/15 16:20:34 by weiyang          ###   ########.fr       */
+/*   Created: 2025/06/15 14:34:20 by weiyang           #+#    #+#             */
+/*   Updated: 2025/06/15 16:17:23 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex(unsigned int nb, int type)
+int	ft_putchar(char c)
 {
-	int		len;
-	char	*base;
-
-	len = 0;
-	if (type == 1)
-		base = "0123456789abcdef";
-	if (type == 2)
-		base = "0123456789ABCDEF";
-	if (nb >= 16)
-		len += ft_puthex(nb / 16, type);
-	ft_putchar(base[nb % 16]);
-	return (len + 1);
+	return (write (1, &c, 1));
 }

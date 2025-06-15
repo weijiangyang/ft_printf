@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 14:37:30 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/15 16:20:34 by weiyang          ###   ########.fr       */
+/*   Created: 2025/06/15 14:38:57 by weiyang           #+#    #+#             */
+/*   Updated: 2025/06/15 16:31:05 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex(unsigned int nb, int type)
+int	ft_putptr(void *ptr)
 {
-	int		len;
-	char	*base;
+	int	count;
 
-	len = 0;
-	if (type == 1)
-		base = "0123456789abcdef";
-	if (type == 2)
-		base = "0123456789ABCDEF";
-	if (nb >= 16)
-		len += ft_puthex(nb / 16, type);
-	ft_putchar(base[nb % 16]);
-	return (len + 1);
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	count = 0;
+	count += ft_putstr("0x");
+	count += ft_puthex_ptr((unsigned long)ptr);
+	return (count);
 }
