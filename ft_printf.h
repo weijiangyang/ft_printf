@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:40:23 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/15 16:33:59 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/16 10:27:50 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	ft_putnbr(int nb);
 int	ft_putnbr_unsigned(unsigned int nb);
 int	ft_putptr(void *ptr);
 int	ft_putstr(char *s);
-
+int	main(void);
 #endif
