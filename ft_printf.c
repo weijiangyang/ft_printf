@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:47:25 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/15 16:15:33 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/16 10:12:22 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	ft_printf(const char *format, ...)
 	va_list	args;
 	int		len;
 
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	len = 0;
 	while (*format)
