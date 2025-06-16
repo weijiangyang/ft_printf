@@ -1,0 +1,111 @@
+Flags de base à supporter :
+	Flag	Signification
+
+	-	Alignement à gauche
+	0	Padding avec des zéros
+	.	Précision
+	largeur minimale (5, 10, etc.)	Nombre minimal de caractères à afficher
+
+🎯 Flags supplémentaires à supporter :
+	Flag	Signification
+	#	Préfixe (0x pour %x, 0 pour %o, etc.)
+	+	Forcer un + devant les nombres positifs (%d, %i)
+	' ' (espace)	Affiche un espace devant les positifs (si + n’est pas utilisé)
+
+Examples:
+	1. minus (-) — Alignement à gauche
+
+	printf("|%-10d|\n", 42);
+
+	Affiche :
+
+	|42        |
+
+    	Le champ est de largeur 10, le nombre est aligné à gauche, et les espaces viennent à droite.
+
+	2. zero (0) — Padding par des zéros
+
+	printf("|%010d|\n", 42);
+
+	Affiche :
+
+	|0000000042|
+
+    	Le champ fait 10 caractères, et les espaces sont remplacés par des zéros à gauche.
+    	Attention : si précision est spécifiée (.), ce flag est ignoré.
+
+	3. width — Largeur minimale
+
+	printf("|%5d|\n", 42);
+
+	Affiche :
+
+	|   42|
+
+    	Largeur minimale 5, remplit avec des espaces à gauche par défaut.
+
+	4. dot + precision (.) — Précision pour nombre ou chaîne
+
+	printf("|%.5d|\n", 42);
+
+	Affiche :
+
+	|00042|
+
+    	Précision indique nombre minimum de chiffres pour un entier, padding avec des zéros à gauche.
+
+	printf("|%.3s|\n", "abcdef");
+
+	Affiche :
+
+	|abc|
+
+   	Précision limite la longueur affichée d’une chaîne.
+
+	5. hash (#) — Forme alternative (prefixe pour hex, octal...)
+
+	printf("|%#x|\n", 255);
+
+	Affiche :
+
+	|0xff|
+
+	printf("|%#o|\n", 10);
+
+	Affiche :
+
+	|012|
+
+    	Le flag # ajoute un préfixe 0x, 0X ou 0 suivant le format.
+
+	6. plus (+) — Forcer le signe +
+
+	printf("|%+d|\n", 42);
+
+	Affiche :
+
+	|+42|
+
+    	Affiche toujours un signe, même pour les positifs.
+
+	7. space ( ) — Espace devant nombres positifs
+
+	printf("|% d|\n", 42);
+
+	Affiche :
+
+	| 42|
+
+    	Met un espace devant un nombre positif si pas de +.
+    	Utile pour l’alignement avec des nombres négatifs.
+
+
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:40:23 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/16 10:27:50 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/16 12:35:02 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 # include <unistd.h>
 # include <stdarg.h>
 
+typedef struct s_flags
+{
+    int minus;      // '-'
+    int zero;       // '0'
+    int width;      // nombre
+    int precision;  // après '.'
+    int dot;        // si '.' existe
+    int hash;       // '#'
+    int plus;       // '+'
+    int space;      // ' '
+}   t_flags;
+
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);
 int	ft_puthex(unsigned int nb, int type);
@@ -24,5 +36,6 @@ int	ft_putnbr(int nb);
 int	ft_putnbr_unsigned(unsigned int nb);
 int	ft_putptr(void *ptr);
 int	ft_putstr(char *s);
+const char *parse_flags(const char *format, t_flags *flags, va_list args);
 int	main(void);
 #endif
