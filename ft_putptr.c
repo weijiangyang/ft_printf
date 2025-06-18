@@ -6,20 +6,19 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:38:57 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/15 16:31:05 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/18 14:30:43 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putptr(void *ptr)
+int	ft_putptr(void *ptr, t_flags flags)
 {
 	int	count;
 
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	count = 0;
-	count += ft_putstr("0x");
-	count += ft_puthex_ptr((unsigned long)ptr);
+	count += ft_puthex_ptr((unsigned long)ptr, flags);
 	return (count);
 }
