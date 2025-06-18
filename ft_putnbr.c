@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/18 16:46:38 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/18 21:05:09 by weijiangyang     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,20 +194,20 @@ int	ft_putnbr(int n, t_flags flags)
 	int	padding_spaces;
 	int	len;
 
+	if (n == 0 && flags.precision == 0 && flags.dot == 1)
+
+		return (0);
 	len = 0;
 	nbr = ft_itoa(n);
 	cal_padding(n, flags, &padding_zero, &padding_spaces);
 	len += ft_putnbr_1(nbr, flags, padding_zero, padding_spaces);
-	free (nbr);
+	free (nbr); 
 	return (len); 
 }
 
 void run_test(int n, t_flags flags, const char *desc)
 {
-    printf("Test: %s\n", desc);
-    printf("Result: '");
-    int len = ft_putnbr(n, flags);
-    printf("' (len = %d)\n\n", len);
+	ft_putnbr(n, flags);
 }
 
 int main(void)
@@ -217,41 +217,50 @@ int main(void)
     // Basic no flags
     f = (t_flags){0};
     run_test(42, f, "Basic 42 with no flags");
-
+    printf("\n");
     // Width
     f = (t_flags){.width = 10};
+ printf("\n");
     run_test(42, f, "Width = 10, right aligned");
 
     // Width + minus
     f = (t_flags){.width = 10, .minus = 1};
+ printf("\n");
     run_test(42, f, "Width = 10, left aligned");
 
     // Zero padding
     f = (t_flags){.width = 10, .zero = 1};
+ printf("\n");
     run_test(42, f, "Zero padding (width = 10)");
 
     // Plus sign
     f = (t_flags){.plus = 1};
+ printf("\n");
     run_test(42, f, "Plus flag (+)");
 
     // Space flag
     f = (t_flags){.space = 1};
+ printf("\n");
     run_test(42, f, "Space flag");
 
     // Negative number
     f = (t_flags){.width = 10};
+ printf("\n");
     run_test(-42, f, "Negative number with width");
 
     // Precision
     f = (t_flags){.precision = 5, .dot = 1};
+ printf("\n");
     run_test(42, f, "Precision = 5");
 
     // Zero + precision (zero ignored)
     f = (t_flags){.width = 10, .zero = 1, .precision = 5, .dot = 1};
+ printf("\n");
     run_test(42, f, "Zero + precision = 5 (zero should be ignored)");
 
     // Precision = 0 and n = 0
     f = (t_flags){.precision = 0, .dot = 1};
+ printf("\n");
     run_test(0, f, "Precision = 0, n = 0 (should print nothing)");
 
     return 0;
