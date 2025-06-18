@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:47:25 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/16 13:17:30 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/18 15:01:05 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_printf_1(char c, va_list args, t_flags flags)
 	else if (c == 'u')
 		len += ft_putnbr_unsigned(va_arg(args, unsigned int), flags);
 	else if (c == 'x')
-		len += ft_puthex (va_arg(args, unsigned int), 1, flags);
+		len += ft_puthex (va_arg(args, unsigned int), 0, flags);
 	else if (c == 'X')
-		len += ft_puthex(va_arg(args, unsigned int), 2, flags);
+		len += ft_puthex(va_arg(args, unsigned int), 1, flags);
 	else if (c == 'p')
 		len += ft_putptr(va_arg(args, void *), flags);
 	else if (c == '%')
