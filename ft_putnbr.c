@@ -6,11 +6,93 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/18 16:29:42 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/18 16:46:38 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+typedef struct s_flags
+{
+    int minus;      // '-'
+    int zero;       // '0'
+    int width;      // nombre
+    int precision;  // après '.'
+    int dot;        // si '.' existe
+    int hash;       // '#'
+    int plus;       // '+'
+    int space;      // ' '
+}   t_flags;
+
+int	ft_putchar(char c)
+{
+	write (1, &c, 1);
+	return (1);
+}
+
+int     ft_putstr(char *s) 
+{
+        int             len;
+
+        len = 0;
+        if (!s)
+                s = "(null)";
+        while (*s)
+        {
+                ft_putchar(*s);
+                s++;
+                len++;
+        }
+        return (len);
+}
+
+	
+int     ft_intlen(int nb)
+{
+        int     len;
+
+        len = 0;
+        if (nb <= 0)
+        {
+                len += 1;
+        }
+        while (nb)
+        {
+                nb /= 10;
+                len ++;
+        }
+        return (len);
+}
+
+char *ft_itoa(int n)
+{
+        int     len;
+        char    *str;
+        long    nb;
+
+        nb = n;
+        len = ft_intlen(n);
+        str = (char *)malloc (sizeof (char) * (len + 1));
+        if (!str)
+                return (NULL);
+        str[len] = '\0';
+        if (nb < 0)
+        {
+                str[0] = '-';
+                nb = -nb;
+        }
+        else if (nb == 0)
+                str[0] = '0';
+        while (nb > 0)
+        {
+                str[len - 1] = nb % 10 + '0';
+                nb /= 10;
+                len --;
+        }
+        return (str);
+}
 
 int put_padding(char c, int count)
 {
@@ -119,3 +201,59 @@ int	ft_putnbr(int n, t_flags flags)
 	free (nbr);
 	return (len); 
 }
+
+void run_test(int n, t_flags flags, const char *desc)
+{
+    printf("Test: %s\n", desc);
+    printf("Result: '");
+    int len = ft_putnbr(n, flags);
+    printf("' (len = %d)\n\n", len);
+}
+
+int main(void)
+{
+    t_flags f;
+
+    // Basic no flags
+    f = (t_flags){0};
+    run_test(42, f, "Basic 42 with no flags");
+
+    // Width
+    f = (t_flags){.width = 10};
+    run_test(42, f, "Width = 10, right aligned");
+
+    // Width + minus
+    f = (t_flags){.width = 10, .minus = 1};
+    run_test(42, f, "Width = 10, left aligned");
+
+    // Zero padding
+    f = (t_flags){.width = 10, .zero = 1};
+    run_test(42, f, "Zero padding (width = 10)");
+
+    // Plus sign
+    f = (t_flags){.plus = 1};
+    run_test(42, f, "Plus flag (+)");
+
+    // Space flag
+    f = (t_flags){.space = 1};
+    run_test(42, f, "Space flag");
+
+    // Negative number
+    f = (t_flags){.width = 10};
+    run_test(-42, f, "Negative number with width");
+
+    // Precision
+    f = (t_flags){.precision = 5, .dot = 1};
+    run_test(42, f, "Precision = 5");
+
+    // Zero + precision (zero ignored)
+    f = (t_flags){.width = 10, .zero = 1, .precision = 5, .dot = 1};
+    run_test(42, f, "Zero + precision = 5 (zero should be ignored)");
+
+    // Precision = 0 and n = 0
+    f = (t_flags){.precision = 0, .dot = 1};
+    run_test(0, f, "Precision = 0, n = 0 (should print nothing)");
+
+    return 0;
+}
+
