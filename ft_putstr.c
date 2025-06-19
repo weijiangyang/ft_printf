@@ -6,18 +6,16 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:35:33 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 08:49:39 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/19 10:52:15 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s, t_flags flags)
+void	cal_padding(char *s, t_flags flags, int *padding_spaces)
 {
-	int	len;
 	int	str_len;
 	int	total_len;
-	int	padding_spaces;
 
 	str_len = ft_strlen(s);
 	if (flags.precision <= str_len)
@@ -25,10 +23,17 @@ int	ft_putstr(char *s, t_flags flags)
 	else
 		total_len = str_len;
 	if (flags.width > total_len)
-		padding_spaces = flags.width - total_len;
+		*padding_spaces = flags.width - total_len;
 	else
 		padding_spaces = 0;
+}
 
+int	ft_putstr(char *s, t_flags flags)
+{
+	int	len;
+	int	padding_spaces;
+
+	cal_padding(s, flags, &padding_spaces);
 	len = 0;
 	if (!flags.minus)
 	{

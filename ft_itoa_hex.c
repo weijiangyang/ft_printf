@@ -6,24 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 14:47:07 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/18 14:50:31 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/19 12:30:50 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_intlen_hex(unsigned int nb) 
-{
-        int     len;
-    
-        len = 0;
-        if (nb == 0)
-                return (1);
-        while (nb)
-        {
-                nb /= 16; 
-                len ++; 
-        }
-        return (len);
-}
+#include "ft_printf.h"
 
 char *ft_itoa_hex(unsigned int n, int type)
 {

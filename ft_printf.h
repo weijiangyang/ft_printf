@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:40:23 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/16 12:35:02 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/19 12:27:19 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ typedef struct s_flags
     int plus;       // '+'
     int space;      // ' '
 }   t_flags;
+
+typedef struct s_padding
+{
+	int spaces;
+	int zero;
+} padding;
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);
