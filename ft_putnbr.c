@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/18 21:05:09 by weijiangyang     ###   ########.fr       */
+/*   Updated: 2025/06/19 08:44:26 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ typedef struct s_flags
     int space;      // ' '
 }   t_flags;
 
-int	ft_putchar(char c)
-{
-	write (1, &c, 1);
-	return (1);
-}
-
 int     ft_putstr(char *s) 
 {
         int             len;
@@ -47,97 +41,7 @@ int     ft_putstr(char *s)
         }
         return (len);
 }
-
 	
-int     ft_intlen(int nb)
-{
-        int     len;
-
-        len = 0;
-        if (nb <= 0)
-        {
-                len += 1;
-        }
-        while (nb)
-        {
-                nb /= 10;
-                len ++;
-        }
-        return (len);
-}
-
-char *ft_itoa(int n)
-{
-        int     len;
-        char    *str;
-        long    nb;
-
-        nb = n;
-        len = ft_intlen(n);
-        str = (char *)malloc (sizeof (char) * (len + 1));
-        if (!str)
-                return (NULL);
-        str[len] = '\0';
-        if (nb < 0)
-        {
-                str[0] = '-';
-                nb = -nb;
-        }
-        else if (nb == 0)
-                str[0] = '0';
-        while (nb > 0)
-        {
-                str[len - 1] = nb % 10 + '0';
-                nb /= 10;
-                len --;
-        }
-        return (str);
-}
-
-int put_padding(char c, int count)
-{
-	int	i;
-	int	len;
-
-	len = 0;
-	i = 0;
-	while (i < count)
-	{
-		len += ft_putchar(c);
-		i++;
-	}
-	return (len);
-}
-
-int print_sign(int is_negative, t_flags flags) {
-    if (is_negative)
-        return ft_putchar('-');
-    if (flags.plus)
-        return ft_putchar('+');
-    if (flags.space)
-        return ft_putchar(' ');
-    return 0;
-}
-
-int print_padding(int padding_zero, int padding_spaces, int is_negative, t_flags flags)
-{
-	int	len;
-
-	len = 0;
-	if (!flags.zero || flags.dot)
-        {
-            len += put_padding(' ', padding_spaces);
-            len += print_sign(is_negative, flags);
-            len += put_padding('0', padding_zero);
-        }
-        else
-        {
-            len += print_sign(is_negative, flags);
-            len += put_padding('0', padding_spaces);
-        }
-	return (len);   
-}
-
 int ft_putnbr_1(char *nbr, t_flags flags, int padding_zero, int padding_spaces)
 {
     int len = 0;
@@ -195,7 +99,6 @@ int	ft_putnbr(int n, t_flags flags)
 	int	len;
 
 	if (n == 0 && flags.precision == 0 && flags.dot == 1)
-
 		return (0);
 	len = 0;
 	nbr = ft_itoa(n);
@@ -205,12 +108,14 @@ int	ft_putnbr(int n, t_flags flags)
 	return (len); 
 }
 
-void run_test(int n, t_flags flags, const char *desc)
+/*void run_test(int n, t_flags flags, const char *desc)
 {
 	ft_putnbr(n, flags);
-}
+	
+	printf("%s", desc);
+}*/
 
-int main(void)
+/*int main(void)
 {
     t_flags f;
 
@@ -265,4 +170,5 @@ int main(void)
 
     return 0;
 }
+*/
 
