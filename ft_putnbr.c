@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 08:44:26 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/19 12:54:13 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-typedef struct s_flags
-{
-    int minus;      // '-'
-    int zero;       // '0'
-    int width;      // nombre
-    int precision;  // après '.'
-    int dot;        // si '.' existe
-    int hash;       // '#'
-    int plus;       // '+'
-    int space;      // ' '
-}   t_flags;
-
-int     ft_putstr(char *s) 
-{
-        int             len;
-
-        len = 0;
-        if (!s)
-                s = "(null)";
-        while (*s)
-        {
-                ft_putchar(*s);
-                s++;
-                len++;
-        }
-        return (len);
-}
-	
 int ft_putnbr_1(char *nbr, t_flags flags, int padding_zero, int padding_spaces)
 {
     int len = 0;
@@ -56,13 +28,13 @@ int ft_putnbr_1(char *nbr, t_flags flags, int padding_zero, int padding_spaces)
     if (!flags.minus)
     {
      	len += print_padding(padding_zero, padding_spaces, is_negative, flags);
-        len += ft_putstr(nbr);
+        len += ft_putstr_noflag(nbr);
     }
     else
     {
 	len += print_sign(is_negative, flags);
         len += put_padding('0', padding_zero);
-        len += ft_putstr(nbr);
+        len += ft_putstr_noflag(nbr);
         len += put_padding(' ', padding_spaces);
     }
     return (len);
@@ -99,7 +71,10 @@ int	ft_putnbr(int n, t_flags flags)
 	int	len;
 
 	if (n == 0 && flags.precision == 0 && flags.dot == 1)
+	{
+		free (nbr);
 		return (0);
+	}
 	len = 0;
 	nbr = ft_itoa(n);
 	cal_padding(n, flags, &padding_zero, &padding_spaces);

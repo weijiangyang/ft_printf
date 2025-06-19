@@ -6,14 +6,14 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 08:14:24 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 08:15:03 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/19 14:36:53 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_putchar_noflag(char c)
+int	ft_putchar_noflag(char c)
 {
-        write (1, &c, 1); 
-        return (1);
+	write (1, &c, 1);
+	return (1);
 }

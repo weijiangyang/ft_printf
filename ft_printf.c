@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:47:25 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/18 15:01:05 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/19 14:34:50 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_printf_1(char c, va_list args, t_flags flags)
 	if (c == 'c')
 		len += ft_putchar((char)va_arg(args, int), flags);
 	else if (c == 's')
-		len += ft_putstr(va_arg(args, char *),flags);
+		len += ft_putstr(va_arg(args, char *), flags);
 	else if (c == 'd' || c == 'i')
 		len += ft_putnbr(va_arg(args, int), flags);
 	else if (c == 'u')
@@ -40,7 +40,7 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		len;
-	t_flags		flags;
+	t_flags	flags;
 
 	if (!format)
 		return (-1);

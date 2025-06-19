@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 13:17:40 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/16 13:34:44 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/19 14:19:18 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	ft_intlen(int nb)
 	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	int	len;
+	int		len;
 	char	*str;
 	long	nb;
 
@@ -56,7 +56,6 @@ char *ft_itoa(int n)
 	}
 	return (str);
 }
-	
 /*#include <stdio.h>
 
 int main(void)

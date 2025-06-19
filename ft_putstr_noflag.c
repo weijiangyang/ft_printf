@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_noflag.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 14:38:57 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 14:05:01 by weiyang          ###   ########.fr       */
+/*   Created: 2025/06/19 14:10:15 by weiyang           #+#    #+#             */
+/*   Updated: 2025/06/19 14:13:07 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_putptr(void *ptr, t_flags flags)
+int	ft_putstr_noflag(char *s)
 {
-	int	count;
+	int	len;
 
-	if (!ptr)
-		return (ft_putstr_noflag("(nil)"));
-	count = 0;
-	count += ft_puthex_ptr((unsigned long)ptr, flags);
-	return (count);
+	len = 0;
+	if (!s)
+		s = "(nil)";
+	while (*s)
+	{
+		len += ft_putchar_noflag(*s);
+		s++;
+	}
+	return (len);
 }

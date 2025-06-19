@@ -6,24 +6,23 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 12:29:41 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 12:30:21 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/19 14:16:25 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_intlen_hex(unsigned int nb) 
+int	ft_intlen_hex(unsigned int nb)
 {
-        int     len;
-    
-        len = 0;
-        if (nb == 0)
-                return (1);
-        while (nb)
-        {
-                nb /= 16; 
-                len ++; 
-        }
-        return (len);
-}
+	int	len;
 
+	len = 0;
+	if (nb == 0)
+		return (1);
+	while (nb)
+	{
+		nb /= 16;
+		len ++;
+	}
+	return (len);
+}
