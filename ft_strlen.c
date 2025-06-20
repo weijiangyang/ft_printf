@@ -6,22 +6,21 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 08:44:36 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 08:44:58 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 09:10:18 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int     ft_strlen(char *s) 
+int	ft_strlen(char *s)
 {
-        int     len;
+	int	len;
 
-        if (!s)
-                s = "(null)";
-        len = 0;
-        while (*s)
-        {
-                len ++; 
-                s++;
-        }
-        return (len);
+	if (!s)
+		s = "(null)";
+	len = 0;
+	while (*s)
+	{
+		len ++;
+		s++;
+	}
+	return (len);
 }
-
