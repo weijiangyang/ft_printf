@@ -1,34 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/15 16:29:46 by weiyang          ###   ########.fr       */
+/*   Created: 2025/06/16 13:17:40 by weiyang           #+#    #+#             */
+/*   Updated: 2025/06/20 15:09:19 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int nb)
+char	*ft_itoa(int n)
 {
-	int	count;
+	int		len;
+	char	*str;
+	long	nb;
 
-	count = 0;
-	if (nb == -2147483648)
-	{
-		count += ft_putstr("-2147483648");
-		return (count);
-	}
+	nb = n;
+	len = ft_intlen(n);
+	str = (char *)malloc (sizeof (char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
 	if (nb < 0)
 	{
+		str[0] = '-';
 		nb = -nb;
-		count += ft_putchar ('-');
 	}
-	if (nb >= 10)
-		count += ft_putnbr (nb / 10);
-	count += ft_putchar (nb % 10 + '0');
-	return (count);
+	else if (nb == 0)
+		str[0] = '0';
+	while (nb > 0)
+	{
+		str[len - 1] = nb % 10 + '0';
+		nb /= 10;
+		len --;
+	}
+	return (str);
 }
+/*#include <stdio.h>
+
+int main(void)
+{
+	int n;
+	char *str;
+
+	n = -42200;
+	str = ft_itoa(n);
+	printf("%s",str);
+	return (0);
+}*/

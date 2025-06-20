@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnstr_noflag.c                                :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:45:53 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 11:20:45 by weiyang          ###   ########.fr       */
+/*   Created: 2025/06/20 14:37:21 by weiyang           #+#    #+#             */
+/*   Updated: 2025/06/20 14:37:35 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnstr_noflag(char *s, int n)
+int     ft_intlen(int nb) 
 {
-	int	len;
+        int     len;
 
-	len = 0;
-	while (*s && (n < 0 || len < n))
-	{
-		ft_putchar_1(*s++);
-		len++;
-	}
-	return (len);
+        len = 0;
+        if (nb <= 0)
+        {
+                len += 1;
+        }
+        while (nb)
+        {
+                nb /= 10; 
+                len ++; 
+        }
+        return (len);
 }

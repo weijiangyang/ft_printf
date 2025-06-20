@@ -1,70 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_unsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/16 13:17:40 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 14:19:18 by weiyang          ###   ########.fr       */
+/*   Created: 2025/06/18 11:17:04 by weiyang           #+#    #+#             */
+/*   Updated: 2025/06/20 15:09:53 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "ft_printf.h" 
 
-int	ft_intlen(int nb)
-{
-	int	len;
-
-	len = 0;
-	if (nb <= 0)
-	{
-		len += 1;
-	}
-	while (nb)
-	{
-		nb /= 10;
-		len ++;
-	}
-	return (len);
-}
-
-char	*ft_itoa(int n)
+char	*ft_itoa_unsigned(unsigned int n)
 {
 	int		len;
 	char	*str;
-	long	nb;
 
-	nb = n;
-	len = ft_intlen(n);
+	len = ft_intlen_unsigned (n);
 	str = (char *)malloc (sizeof (char) * (len + 1));
 	if (!str)
 		return (NULL);
 	str[len] = '\0';
-	if (nb < 0)
-	{
-		str[0] = '-';
-		nb = -nb;
-	}
-	else if (nb == 0)
+	if (n == 0)
 		str[0] = '0';
-	while (nb > 0)
+	while (n > 0)
 	{
-		str[len - 1] = nb % 10 + '0';
-		nb /= 10;
+		str[len - 1] = n % 10 + '0';
+		n /= 10;
 		len --;
 	}
 	return (str);
 }
-/*#include <stdio.h>
-
-int main(void)
-{
-	int n;
-	char *str;
-
-	n = -42200;
-	str = ft_itoa(n);
-	printf("%s",str);
-	return (0);
-}*/

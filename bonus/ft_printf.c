@@ -6,33 +6,33 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:47:25 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/16 10:12:22 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 14:27:44 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_1(char c, va_list args)
+int	ft_printf_1(char c, va_list args, t_flags flags)
 {
 	int	len;
 
 	len = 0;
 	if (c == 'c')
-		len += ft_putchar((char)va_arg(args, int));
+		len += ft_putchar((char)va_arg(args, int), flags);
 	else if (c == 's')
-		len += ft_putstr(va_arg(args, char *));
+		len += ft_putstr(va_arg(args, char *), flags);
 	else if (c == 'd' || c == 'i')
-		len += ft_putnbr(va_arg(args, int));
+		len += ft_putnbr(va_arg(args, int), flags);
 	else if (c == 'u')
-		len += ft_putnbr_unsigned(va_arg(args, unsigned int));
+		len += ft_putnbr_unsigned(va_arg(args, unsigned int), flags);
 	else if (c == 'x')
-		len += ft_puthex (va_arg(args, unsigned int), 1);
+		len += ft_puthex (va_arg(args, unsigned int), 0, flags);
 	else if (c == 'X')
-		len += ft_puthex(va_arg(args, unsigned int), 2);
+		len += ft_puthex(va_arg(args, unsigned int), 1, flags);
 	else if (c == 'p')
-		len += ft_putptr(va_arg(args, void *));
+		len += ft_putptr(va_arg(args, void *), flags);
 	else if (c == '%')
-		len += ft_putchar ('%');
+		len += ft_putchar ('%', flags);
 	return (len);
 }
 
@@ -40,6 +40,7 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		len;
+	t_flags	flags;
 
 	if (!format)
 		return (-1);
@@ -49,11 +50,13 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%' && *(format + 1))
 		{
+			flags = (t_flags){0};
 			format++;
-			len += ft_printf_1(*format, args);
+			format = parse_flags(format, &flags, args);
+			len += ft_printf_1(*format, args, flags);
 		}
 		else
-			len += ft_putchar(*format);
+			len += ft_putchar_noflag(*format);
 		format++;
 	}
 	va_end(args);

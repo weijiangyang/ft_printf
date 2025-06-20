@@ -6,27 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:58:15 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 14:29:44 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 15:10:51 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-
-int	ft_intlen_hex_ptr(unsigned long nb)
-{
-	int	len;
-
-	len = 0;
-	if (nb == 0)
-		return (1);
-	while (nb)
-	{
-		nb /= 16;
-		len ++;
-	}
-	return (len);
-}
+#include "ft_printf.h" 
 
 char	*ft_itoa_hex_ptr(unsigned long n)
 {
