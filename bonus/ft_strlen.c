@@ -6,11 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 08:44:36 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 14:21:30 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:57:33 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_strlen(char *s)
 {

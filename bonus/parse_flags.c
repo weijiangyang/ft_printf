@@ -6,11 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:33:29 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 14:58:02 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:59:36 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 const char	*parse_flags_dot(const char *format, t_flags *flags, va_list args)
 {

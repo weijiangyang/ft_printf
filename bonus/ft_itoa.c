@@ -6,11 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 13:17:40 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 15:09:19 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:56:29 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 char	*ft_itoa(int n)
 {

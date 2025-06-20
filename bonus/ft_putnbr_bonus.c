@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 15:26:32 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:55:03 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" 
+#include "../ft_printf.h" 
 
-int	ft_putnbr_1(char *nbr, t_flags flags, int padding_zero, int padding_spaces)
+int	ft_putnbr_1_bonus(char *nbr, t_flags flags, int padding_zero, int padding_spaces)
 {
 	int	len;
 	int	is_negative;
@@ -27,13 +27,13 @@ int	ft_putnbr_1(char *nbr, t_flags flags, int padding_zero, int padding_spaces)
 	if (!flags.minus)
 	{
 		len += print_padding(padding_zero, padding_spaces, is_negative, flags);
-		len += ft_putstr_noflag(nbr);
+		len += ft_putstr(nbr);
 	}
 	else
 	{
 		len += print_sign(is_negative, flags);
 		len += put_padding('0', padding_zero);
-		len += ft_putstr_noflag(nbr);
+		len += ft_putstr(nbr);
 		len += put_padding(' ', padding_spaces);
 	}
 	return (len);
@@ -63,7 +63,7 @@ void	cal_padding_nbr(int n, t_flags flags, int *padding_zero
 		*padding_spaces = 0;
 }
 
-int	ft_putnbr(int n, t_flags flags)
+int	ft_putnbr_bonus(int n, t_flags flags)
 {
 	char	*nbr;
 	int		padding_zero;
@@ -78,7 +78,7 @@ int	ft_putnbr(int n, t_flags flags)
 	}
 	len = 0;
 	cal_padding_nbr(n, flags, &padding_zero, &padding_spaces);
-	len += ft_putnbr_1(nbr, flags, padding_zero, padding_spaces);
+	len += ft_putnbr_1_bonus(nbr, flags, padding_zero, padding_spaces);
 	free (nbr);
 	return (len);
 }

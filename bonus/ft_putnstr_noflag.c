@@ -6,11 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 08:45:53 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 15:21:35 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:59:18 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_putnstr_noflag(char *s, int n)
 {
@@ -21,7 +21,7 @@ int	ft_putnstr_noflag(char *s, int n)
 		s = "(null)";
 	while (*s && (n < 0 || len < n))
 	{
-		ft_putchar_noflag(*s++);
+		ft_putchar(*s++);
 		len++;
 	}
 	return (len);

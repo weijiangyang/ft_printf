@@ -6,11 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 11:17:04 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 15:09:53 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:54:45 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" 
+#include "../ft_printf.h" 
 
 char	*ft_itoa_unsigned(unsigned int n)
 {

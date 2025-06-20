@@ -6,11 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:31:28 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 14:32:48 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:59:53 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int     ft_intlen_hex_ptr(unsigned long nb) 
 {

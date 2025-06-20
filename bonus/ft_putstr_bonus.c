@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:35:33 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 15:22:13 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:55:27 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	cal_padding_str(char *s, t_flags flags, int *padding_spaces)
 {
@@ -30,7 +30,7 @@ void	cal_padding_str(char *s, t_flags flags, int *padding_spaces)
 		*padding_spaces = 0;
 }
 
-int	ft_putstr(char *s, t_flags flags)
+int	ft_putstr_bonus(char *s, t_flags flags)
 {
 	int	len;
 	int	padding_spaces;

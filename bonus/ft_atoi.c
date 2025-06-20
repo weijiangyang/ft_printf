@@ -6,11 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 13:37:32 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 15:02:36 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 16:53:53 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int	ft_atoi(const char *s)
 {

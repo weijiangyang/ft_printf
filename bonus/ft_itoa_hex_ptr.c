@@ -6,11 +6,11 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 12:58:15 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 15:10:51 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 17:00:09 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h" 
+#include "../ft_printf.h" 
 
 char	*ft_itoa_hex_ptr(unsigned long n)
 {

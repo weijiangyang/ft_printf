@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_noflag.c                                :+:      :+:    :+:   */
+/*   ft_putchar_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/19 08:14:24 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 14:36:53 by weiyang          ###   ########.fr       */
+/*   Created: 2025/06/15 14:34:20 by weiyang           #+#    #+#             */
+/*   Updated: 2025/06/20 16:56:45 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int	ft_putchar_noflag(char c)
+int	ft_putchar_bonus(char c, t_flags flags)
 {
-	write (1, &c, 1);
-	return (1);
+	int	len;
+
+	len = 0;
+	if (!flags.minus)
+	{
+		if (flags.width > 1)
+			len += put_padding(' ', flags.width - 1);
+		len += ft_putchar(c);
+	}
+	else
+	{
+		len += ft_putchar(c);
+		if (flags.width > 1)
+			len += put_padding(' ', flags.width - 1);
+	}
+	return (len);
 }
