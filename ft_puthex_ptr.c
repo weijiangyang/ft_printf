@@ -6,43 +6,53 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:38:25 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 15:10:23 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 11:40:31 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex_ptr_1(char *nbr, t_flags flags, int padding_zero, int padding_spaces)
+int	ft_putptr_right(char *nbr, t_flags flags, int padding_zero
+	, int padding_spaces)
+{
+	int	len;
+
+	len = 0;
+	if (!flags.zero || flags.dot)
+	{
+		len += put_padding(' ', padding_spaces);
+		len += ft_putstr_noflag("0x");
+		len += put_padding('0', padding_zero);
+	}
+	else
+	{
+		len += ft_putstr_noflag("0x");
+		len += put_padding('0', padding_spaces);
+	}
+	len += ft_putstr_noflag(nbr);
+	return (len);
+}
+
+int	ft_puthex_ptr_1(char *nbr, t_flags flags, int padding_zero
+	, int padding_spaces)
 {
 	int	len;
 
 	len = 0;
 	if (!flags.minus)
-	{   
-		if (!flags.zero || flags.dot)
-		{
-			len += put_padding(' ', padding_spaces);
-			len += ft_putstr_noflag("0x");
-			len += put_padding('0', padding_zero);
-		}
-		else
-		{
-			len += ft_putstr_noflag("0x");
-			len += put_padding('0', padding_spaces);
-		}
-		len += ft_putstr(nbr);
-	}   
+		len += ft_putptr_right(nbr, flags, padding_zero, padding_spaces);
 	else
-	{   
+	{
 		len += ft_putstr_noflag("0x");
 		len += put_padding('0', padding_zero);
 		len += ft_putstr_noflag(nbr);
 		len += put_padding(' ', padding_spaces);
-	}   
-	return len;
+	}
+	return (len);
 }
 
-void	cal_padding(unsigned long n, t_flags flags, int *padding_zero, int *padding_spaces)
+void	cal_padding(unsigned long n, t_flags flags, int *padding_zero
+	, int *padding_spaces)
 {
 	int	int_len;
 	int	total_len;
@@ -58,7 +68,7 @@ void	cal_padding(unsigned long n, t_flags flags, int *padding_zero, int *padding
 	else
 		*padding_spaces = 0;
 }
-	
+
 int	ft_puthex_ptr(unsigned long n, t_flags flags)
 {
 	char	*nbr;
