@@ -6,13 +6,13 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:37:30 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/19 14:51:32 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/20 14:14:35 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex_1_right(char *nbr, t_flags flags, padding paddings, int type)
+int	ft_puthex_1_right(char *nbr, t_flags flags, t_padding paddings, int type)
 {
 	int	len;
 
@@ -38,7 +38,7 @@ int	ft_puthex_1_right(char *nbr, t_flags flags, padding paddings, int type)
 	return (len);
 }	
 
-int	ft_puthex_1(char *nbr, t_flags flags, padding paddings, int type)
+int	ft_puthex_1(char *nbr, t_flags flags, t_padding paddings, int type)
 {
 	int	len;
 
@@ -58,7 +58,7 @@ int	ft_puthex_1(char *nbr, t_flags flags, padding paddings, int type)
 	return (len);
 }
 
-void	cal_padding(unsigned int n, t_flags flags, padding *paddings)
+void	cal_padding(unsigned int n, t_flags flags, t_padding *paddings)
 {
 	int	int_len;
 	int	total_len;
@@ -79,9 +79,9 @@ void	cal_padding(unsigned int n, t_flags flags, padding *paddings)
 
 int	ft_puthex(unsigned int n, int type, t_flags flags)
 {
-	char	*nbr;
-	int		len;
-	padding	paddings;
+	char		*nbr;
+	int			len;
+	t_padding	paddings;
 
 	len = 0;
 	nbr = ft_itoa_hex(n, type);
