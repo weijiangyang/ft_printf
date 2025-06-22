@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:40:23 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/22 13:46:04 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/22 16:55:38 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_flags
         int     hash;
         int     plus;
         int     space;
+	int	pourcent;
 }       t_flags;
 
 typedef struct s_padding

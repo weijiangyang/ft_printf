@@ -6,13 +6,13 @@
 #    By: weiyang <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/15 14:49:34 by weiyang           #+#    #+#              #
-#    Updated: 2025/06/20 17:15:48 by weiyang          ###   ########.fr        #
+#    Updated: 2025/06/22 17:00:51 by weiyang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        = libftprintf.a
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror
+CFLAGS      = -Wall -Wextra -Werror -fPIE
 AR          = ar rc
 RM          = rm -f
 

@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:34:20 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 16:56:45 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/22 16:58:33 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_putchar_bonus(char c, t_flags flags)
 	int	len;
 
 	len = 0;
+	if (flags.pourcent)
+		return (ft_putchar('%'));
 	if (!flags.minus)
 	{
 		if (flags.width > 1)
