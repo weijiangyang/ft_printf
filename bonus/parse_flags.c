@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 12:33:29 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/22 16:56:47 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/22 18:23:14 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ const char	*parse_flags_1(const char *format, t_flags *flags)
 		flags->plus = 1;
 	else if (*format == ' ')
 		flags->space = 1;
-	else if (*format == '%')
-		flags->pourcent = 1;
 	format++;
 	return (format);
 }

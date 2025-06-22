@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 13:47:25 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 17:11:47 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/22 18:22:27 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_printf_1(char c, va_list args, t_flags flags)
 	else if (c == 'p')
 		len += ft_putptr_bonus(va_arg(args, void *), flags);
 	else if (c == '%')
-		len += ft_putchar_bonus ('%', flags);
+		len += ft_putchar_bonus('%', flags);
 	return (len);
 }
 
@@ -53,6 +53,8 @@ int	ft_printf(const char *format, ...)
 			flags = (t_flags){0};
 			format++;
 			format = parse_flags(format, &flags, args);
+			if (*format == '%')
+				flags.pourcent = 1;
 			len += ft_printf_1(*format, args, flags);
 		}
 		else
