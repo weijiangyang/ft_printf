@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:40:23 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 16:49:06 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/22 13:46:04 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int                     ft_puthex_bonus(unsigned int n, int type, t_flags flags)
 int                     ft_puthex_ptr_bonus(unsigned long n, t_flags flags);
 int                     ft_putnbr_bonus(int n, t_flags flags);
 int                     ft_putnbr_unsigned_bonus(unsigned int n, t_flags flags);
-int                     ft_putnstr_noflag(char *s, int n);
+int                     ft_putnstr_noflag(char *s, int n, t_flags flags);
 int                     ft_putptr_bonus(void *ptr, t_flags flags);
 int                     ft_putstr_bonus(char *s, t_flags flags);
-int                     ft_strlen(char *s);
+int                     ft_strlen(char *s, t_flags flags);
 int                     print_padding(int pad_zero, int pad_spaces, int is_negative,
                                 t_flags flags);
 int                     print_sign(int is_negative, t_flags flags);
