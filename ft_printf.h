@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:40:23 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/22 16:55:38 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/22 19:02:30 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_padding
         int     spaces;
         int     zero;
 }       t_padding;
+
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c);
 int	ft_puthex(unsigned int nb, int type);
@@ -43,7 +44,7 @@ int	ft_putnbr(int nb);
 int	ft_putnbr_unsigned(unsigned int nb);
 int	ft_putptr(void *ptr);
 int	ft_putstr(char *s);
-
+int	handle_zero(t_flags flags, char *nbr);
 int                     ft_atoi(const char *s);
 int                     ft_intlen(int nb);
 int                     ft_intlen_hex(unsigned int nb);

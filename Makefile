@@ -6,7 +6,7 @@
 #    By: weiyang <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/15 14:49:34 by weiyang           #+#    #+#              #
-#    Updated: 2025/06/22 17:00:51 by weiyang          ###   ########.fr        #
+#    Updated: 2025/06/22 19:00:58 by weiyang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ BONUS_SRC   = bonus/ft_atoi.c bonus/ft_intlen.c bonus/ft_intlen_hex.c bonus/ft_i
               bonus/ft_puthex_ptr_bonus.c bonus/ft_putnbr_bonus.c bonus/ft_putnbr_unsigned_bonus.c \
               bonus/ft_putnstr_noflag.c bonus/ft_putptr_bonus.c bonus/ft_putstr_bonus.c \
               bonus/ft_strlen.c bonus/parse_flags.c bonus/print_padding.c \
-              bonus/print_sign.c bonus/put_padding.c
+              bonus/print_sign.c bonus/put_padding.c bonus/handle_zero.c
 
 OBJ         = $(SRC:.c=.o)
 BONUS_OBJ   = $(BONUS_SRC:.c=.o)

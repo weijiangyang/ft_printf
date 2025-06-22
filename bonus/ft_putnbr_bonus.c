@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/22 18:29:59 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/22 19:04:38 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,23 +69,11 @@ int	ft_putnbr_bonus(int n, t_flags flags)
 	int		padding_zero;
 	int		padding_spaces;
 	int		len;
-	
-	nbr = ft_itoa(n);
-/*	if (n == 0 && flags.precision == 0 && flags.dot == 1)
-	{
-		free (nbr);
-		return (0);
-	}*/
-	if (n == 0 && flags.precision == 0 && flags.dot == 1)
-{
-    int len = 0;
-    int padding_spaces = flags.width;  // print width as padding
-    len += put_padding(' ', padding_spaces);
-    free(nbr);
-    return (len);
-}
 
-	len = 0;
+	len = 0;	
+	nbr = ft_itoa(n);
+	if (n == 0 && flags.precision == 0 && flags.dot == 1)
+		return (handle_zero(flags, nbr));
 	cal_padding_nbr(n, flags, &padding_zero, &padding_spaces);
 	len += ft_putnbr_1_bonus(nbr, flags, padding_zero, padding_spaces);
 	free (nbr);
