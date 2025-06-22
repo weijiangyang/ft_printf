@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:37:30 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 16:58:59 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/22 18:43:45 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,21 @@ int	ft_puthex_bonus(unsigned int n, int type, t_flags flags)
 	nbr = ft_itoa_hex(n, type);
 	if (!nbr)
 		return (0);
-	if (flags.dot && flags.precision == 0 && n == 0)
+/*	if (flags.dot && flags.precision == 0 && n == 0)
 	{
 		free (nbr);
 		return (0);
-	}
+	}*/
+	if (n == 0 && flags.precision == 0 && flags.dot == 1)
+{
+    int padding_spaces = flags.width;
+    if (flags.minus)
+        len += put_padding(' ', padding_spaces);
+    else
+        len += put_padding(' ', padding_spaces);
+    return (len);
+}
+
 	cal_padding_hex(n, flags, &paddings);
 	len += ft_puthex_1_bonus(nbr, flags, paddings, type);
 	free (nbr);
