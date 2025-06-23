@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:35:33 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/22 13:54:00 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/23 09:45:28 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,17 @@ void	cal_padding_str(char *s, t_flags flags, int *padding_spaces)
 		*padding_spaces = 0;
 }
 
+char	*handle_null(char *s, t_flags flags)
+{
+	if (!s && flags.dot && flags.precision >= 0 && flags.precision < 6)
+		s = "";
+	else if (!s && flags.dot && flags.precision >= 6)
+		s = "(null)";
+	else if (!s && !flags.dot)
+		s = "(null)";
+	return (s);
+}
+
 int	ft_putstr_bonus(char *s, t_flags flags)
 {
 	int	len;
@@ -35,12 +46,7 @@ int	ft_putstr_bonus(char *s, t_flags flags)
 
 	cal_padding_str(s, flags, &padding_spaces);
 	len = 0;
-	if (!s && flags.dot && flags.precision >= 0 && flags.precision < 6)
-		s = "";
-	else if (!s && flags.dot && flags.precision >= 6)
-		s = "(null)";
-	else if (!s && !flags.dot)
-		s = "(null)";
+	handle_null(s, flags);
 	if (!flags.minus)
 	{
 		len += put_padding(' ', padding_spaces);
