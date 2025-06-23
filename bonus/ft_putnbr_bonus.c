@@ -6,13 +6,14 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:36:03 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/22 19:04:38 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/23 09:36:14 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h" 
 
-int	ft_putnbr_1_bonus(char *nbr, t_flags flags, int padding_zero, int padding_spaces)
+int	ft_putnbr_1_bonus(char *nbr, t_flags flags, int padding_zero,
+		int padding_spaces)
 {
 	int	len;
 	int	is_negative;
@@ -70,7 +71,7 @@ int	ft_putnbr_bonus(int n, t_flags flags)
 	int		padding_spaces;
 	int		len;
 
-	len = 0;	
+	len = 0;
 	nbr = ft_itoa(n);
 	if (n == 0 && flags.precision == 0 && flags.dot == 1)
 		return (handle_zero(flags, nbr));
