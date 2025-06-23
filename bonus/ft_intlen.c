@@ -6,25 +6,25 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:37:21 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/20 16:56:12 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/23 09:30:17 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int     ft_intlen(int nb) 
+int	ft_intlen(int nb)
 {
-        int     len;
+	int	len;
 
-        len = 0;
-        if (nb <= 0)
-        {
-                len += 1;
-        }
-        while (nb)
-        {
-                nb /= 10; 
-                len ++; 
-        }
-        return (len);
+	len = 0;
+	if (nb <= 0)
+	{
+		len += 1;
+	}
+	while (nb)
+	{
+		nb /= 10;
+		len ++;
+	}
+	return (len);
 }
