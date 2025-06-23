@@ -6,7 +6,7 @@
 /*   By: weiyang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 14:36:40 by weiyang           #+#    #+#             */
-/*   Updated: 2025/06/22 18:34:53 by weiyang          ###   ########.fr       */
+/*   Updated: 2025/06/23 09:53:07 by weiyang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,8 @@ int	ft_putnbr_unsigned_bonus(unsigned int n, t_flags flags)
 
 	len = 0;
 	nbr = ft_itoa_unsigned(n);
-/*	if (!nbr)
-		return (0);*/
-if (n == 0 && flags.precision == 0 && flags.dot == 1)
-{
-    int len = 0;
-    int padding_spaces = flags.width;
-    if (flags.minus)
-        len += put_padding(' ', padding_spaces);
-    else
-        len += put_padding(' ', padding_spaces);
-    free(nbr);
-    return (len);
-}
-
+	if (n == 0 && flags.precision == 0 && flags.dot == 1)
+		return (handle_zero(flags, nbr));
 	if (flags.dot && flags.precision == 0 && n == 0)
 	{
 		free (nbr);
